@@ -6,6 +6,7 @@ const LightAccessory = require('./lib/light_accessory');
 const TuyaWebApi = require('./lib/tuyawebapi');
 
 var Accessory, Service, Characteristic, UUIDGen;
+scene_option = true;
 
 module.exports = function (homebridge) {
   // Accessory must be created from PlatformAccessory Constructor
@@ -20,6 +21,7 @@ module.exports = function (homebridge) {
   // registerPlatform(pluginName, platformName, constructor, dynamic), dynamic must be true
   homebridge.registerPlatform("homebridge-tuya-web", "TuyaWebPlatform", TuyaWebPlatform, true);
 }
+
 
 class TuyaWebPlatform {
   constructor(log, config, api) {
@@ -42,9 +44,11 @@ class TuyaWebPlatform {
       this.config.options.password,
       this.config.options.countryCode,
       this.config.options.platform,
-      this.config.options.scene,
       this.log
     );
+
+    this.log('Config scene : [%s]',config.options.scene);
+    scene_option=config.options.scene;
 
     this.accessories = new Map();
     this.failedToInitAccessories = [];
