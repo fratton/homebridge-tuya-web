@@ -37,7 +37,8 @@ npm i fratton/homebridge-tuya-web -g
       "password": "xxxxxxxxxx",
       "countryCode": "xx",
       "platform": "smart_life",
-      "pollingInterval": 10
+      "pollingInterval": 10,
+      "scene": true
     }
 }
 ```
@@ -49,6 +50,7 @@ The `options` has these properties:
 - `countryCode`: Required. Your account [country code](https://www.countrycode.org/), e.g., 1 for USA or 86 for China.
 - `plaform`: The App where your account is registered. `tuya` for Tuya Smart, `smart_life` for Smart Life, `jinvoo_smart` for Jinvoo Smart. Defaults to `tuya`.
 - `pollingInterval`: Optional. The frequency in **seconds** that the plugin polls the cloud to get device updates. When the devices are only controlled through Homebridge, you can set this to a low frequency (high interval nummer, e.g. 180 = 3 minutes). Defaults to 10.
+- `scene`: Required. Enable or disable scenes switchs creation (delete switchs scenes after false).
 
 ## Overrule / default values
 
@@ -107,6 +109,9 @@ The source code also has some unit tests to test API calls. Run the following co
 ```
 
 ## Version history
+
+##### Version 0.1.13 - 2020-06-18
+Add configuration option for enable scenes switchs
 
 ##### Version 0.1.11 - 2020-06-15
 Add config panel
