@@ -42,6 +42,7 @@ class TuyaWebPlatform {
       this.config.options.password,
       this.config.options.countryCode,
       this.config.options.platform,
+      this.config.options.scene,
       this.log
     );
 
